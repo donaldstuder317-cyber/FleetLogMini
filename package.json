@@ -19,6 +19,7 @@
     "@fontsource/barlow-semi-condensed": "^5.3.0",
     "@marsidev/react-turnstile": "^1.6.3",
     "@supabase/supabase-js": "^2.118.0",
+    "@vercel/speed-insights": "^2.0.0",
     "jspdf": "^4.2.1",
     "jspdf-autotable": "^5.0.8",
     "lucide-react": "^1.57.0",
