@@ -14,6 +14,10 @@ export function authErrorMessage(error: Pick<AuthError, 'message'> & { code?: st
     return AUTH_MESSAGES.emailTaken;
   }
   if (code === 'weak_password') return AUTH_MESSAGES.weakPassword;
+  if (code === 'captcha_failed' || /captcha/i.test(message)) return AUTH_MESSAGES.captchaFailed;
+  if (code === 'over_request_rate_limit' || code === 'over_email_send_rate_limit' || /rate limit/i.test(message)) {
+    return AUTH_MESSAGES.rateLimited;
+  }
   if (code === 'email_address_invalid') return AUTH_MESSAGES.invalidEmail;
   return context === 'signIn' ? AUTH_MESSAGES.signInFailed : AUTH_MESSAGES.signUpFailed;
 }
@@ -56,14 +60,20 @@ export function onAuthChange(onChange: (session: Session | null, signedOut: bool
   return () => data.subscription.unsubscribe();
 }
 
-export async function signIn(email: string, password: string): Promise<void> {
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
+/** `captchaToken` is the CAPTCHA token; Supabase rejects the request without a valid one when CAPTCHA protection is on. */
+export async function signIn(email: string, password: string, captchaToken?: string): Promise<void> {
+  const { error } = await supabase.auth.signInWithPassword({ email, password, options: { captchaToken } });
   if (error) throw new Error(authErrorMessage(error, 'signIn'));
 }
 
 /** `needsConfirmation` is true when Supabase requires email confirmation (no session yet). */
-export async function signUp(name: string, email: string, password: string): Promise<{ needsConfirmation: boolean }> {
-  const { data, error } = await supabase.auth.signUp({ email, password, options: { data: { name } } });
+export async function signUp(
+  name: string,
+  email: string,
+  password: string,
+  captchaToken?: string,
+): Promise<{ needsConfirmation: boolean }> {
+  const { data, error } = await supabase.auth.signUp({ email, password, options: { data: { name }, captchaToken } });
   if (error) throw new Error(authErrorMessage(error, 'signUp'));
   // With confirmation on, an existing email comes back as a user with no identities instead of an error.
   if (data.user && data.user.identities?.length === 0) throw new Error(AUTH_MESSAGES.emailTaken);

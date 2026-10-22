@@ -1,11 +1,12 @@
-import { useState, type FormEvent } from 'react';
+import { useRef, useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/common/Button';
 import { TEXT_LINK } from '../components/common/linkStyles';
+import { CAPTCHA_ENABLED, CaptchaField, type CaptchaHandle } from '../components/forms/CaptchaField';
 import { Field } from '../components/forms/Field';
 import { FormError } from '../components/forms/FormError';
 import { Input } from '../components/forms/controls';
-import { authFailureMessage, isWrongCredentials, signIn } from '../services/authService';
+import { AUTH_MESSAGES, authFailureMessage, isWrongCredentials, signIn } from '../services/authService';
 import { validateEmail, validatePasswordEntered } from '../services/validation';
 
 export function SignInPage() {
@@ -14,6 +15,8 @@ export function SignInPage() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const captcha = useRef<CaptchaHandle>(null);
 
   const emailError = submitted ? validateEmail(email) : null;
   const passwordError = submitted ? validatePasswordEntered(password) : null;
@@ -23,9 +26,10 @@ export function SignInPage() {
     setSubmitted(true);
     setServerError(null);
     if (pending || validateEmail(email) || validatePasswordEntered(password)) return;
+    if (CAPTCHA_ENABLED && !captchaToken) return setServerError(AUTH_MESSAGES.captchaRequired);
     setPending(true);
     try {
-      await signIn(email.trim(), password);
+      await signIn(email.trim(), password, captchaToken ?? undefined);
       // GuestOnly redirects once the session arrives.
     } catch (err) {
       setServerError(authFailureMessage(err, 'signIn'));
@@ -33,6 +37,7 @@ export function SignInPage() {
         setPassword('');
         setSubmitted(false); // the cleared field isn't a mistake; only the server message shows
       }
+      captcha.current?.reset(); // tokens are single-use
       setPending(false);
     }
   }
@@ -63,6 +68,7 @@ export function SignInPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Field>
+        <CaptchaField ref={captcha} onToken={setCaptchaToken} />
         {serverError && <FormError>{serverError}</FormError>}
         <Button type="submit" disabled={pending}>
           {pending ? 'Signing in…' : 'Sign In'}

@@ -1,11 +1,12 @@
-import { useState, type FormEvent } from 'react';
+import { useRef, useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, ButtonLink } from '../components/common/Button';
 import { TEXT_LINK } from '../components/common/linkStyles';
+import { CAPTCHA_ENABLED, CaptchaField, type CaptchaHandle } from '../components/forms/CaptchaField';
 import { Field } from '../components/forms/Field';
 import { FormError } from '../components/forms/FormError';
 import { Input } from '../components/forms/controls';
-import { authFailureMessage, isEmailTaken, signUp } from '../services/authService';
+import { AUTH_MESSAGES, authFailureMessage, isEmailTaken, signUp } from '../services/authService';
 import {
   validateEmail,
   validateName,
@@ -22,6 +23,8 @@ export function SignUpPage() {
   const [serverError, setServerError] = useState<string | null>(null);
   const [emailTaken, setEmailTaken] = useState(false);
   const [pending, setPending] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const captcha = useRef<CaptchaHandle>(null);
   const [checkEmail, setCheckEmail] = useState(false);
 
   const errors = {
@@ -38,14 +41,16 @@ export function SignUpPage() {
     setServerError(null);
     setEmailTaken(false);
     if (pending || Object.values(errors).some(Boolean)) return;
+    if (CAPTCHA_ENABLED && !captchaToken) return setServerError(AUTH_MESSAGES.captchaRequired);
     setPending(true);
     try {
-      const { needsConfirmation } = await signUp(name.trim(), email.trim(), password);
+      const { needsConfirmation } = await signUp(name.trim(), email.trim(), password, captchaToken ?? undefined);
       // With a session, GuestOnly redirects to the dashboard.
       if (needsConfirmation) setCheckEmail(true);
     } catch (err) {
       setServerError(authFailureMessage(err, 'signUp'));
       setEmailTaken(isEmailTaken(err));
+      captcha.current?.reset(); // tokens are single-use
       setPending(false);
     }
   }
@@ -112,6 +117,7 @@ export function SignUpPage() {
             onChange={(e) => setConfirm(e.target.value)}
           />
         </Field>
+        <CaptchaField ref={captcha} onToken={setCaptchaToken} />
         {serverError && (
           <FormError>
             {emailTaken ? (
