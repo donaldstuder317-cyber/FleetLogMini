@@ -1,0 +1,625 @@
+{
+ "tldrawFileFormatVersion": 1,
+ "schema": {
+  "schemaVersion": 2,
+  "sequences": {
+   "com.tldraw.store": 5,
+   "com.tldraw.asset": 1,
+   "com.tldraw.camera": 1,
+   "com.tldraw.document": 2,
+   "com.tldraw.instance": 26,
+   "com.tldraw.instance_page_state": 5,
+   "com.tldraw.page": 1,
+   "com.tldraw.instance_presence": 6,
+   "com.tldraw.pointer": 1,
+   "com.tldraw.shape": 4,
+   "com.tldraw.user": 1,
+   "com.tldraw.asset.image": 6,
+   "com.tldraw.asset.video": 5,
+   "com.tldraw.asset.bookmark": 2,
+   "com.tldraw.shape.arrow": 8,
+   "com.tldraw.shape.bookmark": 2,
+   "com.tldraw.shape.draw": 5,
+   "com.tldraw.shape.embed": 4,
+   "com.tldraw.shape.frame": 1,
+   "com.tldraw.shape.geo": 12,
+   "com.tldraw.shape.group": 0,
+   "com.tldraw.shape.highlight": 4,
+   "com.tldraw.shape.image": 5,
+   "com.tldraw.shape.line": 5,
+   "com.tldraw.shape.note": 13,
+   "com.tldraw.shape.text": 4,
+   "com.tldraw.shape.video": 4,
+   "com.tldraw.binding.arrow": 1
+  }
+ },
+ "records": [
+  {
+   "id": "document:document",
+   "typeName": "document",
+   "gridSize": 10,
+   "name": "",
+   "meta": {}
+  },
+  {
+   "id": "page:page",
+   "typeName": "page",
+   "name": "8 Questions",
+   "index": "a1",
+   "meta": {}
+  },
+  {
+   "id": "shape:text_0",
+   "typeName": "shape",
+   "type": "text",
+   "x": 40,
+   "y": 20,
+   "rotation": 0,
+   "index": "a2w02",
+   "parentId": "page:page",
+   "isLocked": false,
+   "opacity": 1,
+   "meta": {},
+   "props": {
+    "color": "black",
+    "size": "l",
+    "font": "draw",
+    "textAlign": "start",
+    "w": 1180,
+    "richText": {
+     "type": "doc",
+     "content": [
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "The 8-Question Practical Template — FleetLog Mini"
+        }
+       ]
+      }
+     ]
+    },
+    "scale": 1,
+    "autoSize": false
+   }
+  },
+  {
+   "id": "shape:text_1",
+   "typeName": "shape",
+   "type": "text",
+   "x": 40,
+   "y": 80,
+   "rotation": 0,
+   "index": "a3tgA",
+   "parentId": "page:page",
+   "isLocked": false,
+   "opacity": 1,
+   "meta": {},
+   "props": {
+    "color": "grey",
+    "size": "s",
+    "font": "draw",
+    "textAlign": "start",
+    "w": 1180,
+    "richText": {
+     "type": "doc",
+     "content": [
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "Equipment & Preventive Maintenance Tracker · answers for OUR app"
+        }
+       ]
+      }
+     ]
+    },
+    "scale": 1,
+    "autoSize": false
+   }
+  },
+  {
+   "id": "shape:geo_2",
+   "typeName": "shape",
+   "type": "geo",
+   "x": 40,
+   "y": 140,
+   "rotation": 0,
+   "index": "a4m7z",
+   "parentId": "page:page",
+   "isLocked": false,
+   "opacity": 1,
+   "meta": {},
+   "props": {
+    "geo": "rectangle",
+    "dash": "draw",
+    "url": "",
+    "w": 570,
+    "h": 225,
+    "growY": 0,
+    "scale": 1,
+    "flipX": false,
+    "flipY": false,
+    "labelColor": "black",
+    "color": "blue",
+    "fill": "semi",
+    "size": "s",
+    "font": "draw",
+    "align": "start",
+    "verticalAlign": "start",
+    "richText": {
+     "type": "doc",
+     "content": [
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "1. What problem does the app solve?"
+        }
+       ]
+      },
+      {
+       "type": "paragraph"
+      },
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "Service history lives in spreadsheets, glovebox receipts and memory. Oil changes, brake checks and inspections get missed, and there is no single view of what is due — but enterprise ERP software is overkill for a small fleet."
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "shape:geo_3",
+   "typeName": "shape",
+   "type": "geo",
+   "x": 640,
+   "y": 140,
+   "rotation": 0,
+   "index": "a5nNA",
+   "parentId": "page:page",
+   "isLocked": false,
+   "opacity": 1,
+   "meta": {},
+   "props": {
+    "geo": "rectangle",
+    "dash": "draw",
+    "url": "",
+    "w": 570,
+    "h": 225,
+    "growY": 0,
+    "scale": 1,
+    "flipX": false,
+    "flipY": false,
+    "labelColor": "black",
+    "color": "blue",
+    "fill": "semi",
+    "size": "s",
+    "font": "draw",
+    "align": "start",
+    "verticalAlign": "start",
+    "richText": {
+     "type": "doc",
+     "content": [
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "2. Who are the users?"
+        }
+       ]
+      },
+      {
+       "type": "paragraph"
+      },
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "Small-fleet owner / maintenance lead (ONE user type for v1) — e.g. a landscaping company, contractor, farm or rental shop running 3–30 vehicles, mowers, generators or field hardware."
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "shape:geo_4",
+   "typeName": "shape",
+   "type": "geo",
+   "x": 40,
+   "y": 390,
+   "rotation": 0,
+   "index": "a6RqM",
+   "parentId": "page:page",
+   "isLocked": false,
+   "opacity": 1,
+   "meta": {},
+   "props": {
+    "geo": "rectangle",
+    "dash": "draw",
+    "url": "",
+    "w": 570,
+    "h": 225,
+    "growY": 0,
+    "scale": 1,
+    "flipX": false,
+    "flipY": false,
+    "labelColor": "black",
+    "color": "green",
+    "fill": "semi",
+    "size": "s",
+    "font": "draw",
+    "align": "start",
+    "verticalAlign": "start",
+    "richText": {
+     "type": "doc",
+     "content": [
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "3. What are their primary goals?"
+        }
+       ]
+      },
+      {
+       "type": "paragraph"
+      },
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "See at a glance what is Good / Due Soon / Overdue · log a service in under 30 seconds · see what is coming up (30 days or 500 mi) · export clean history for audits, resale or the accountant."
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "shape:geo_5",
+   "typeName": "shape",
+   "type": "geo",
+   "x": 640,
+   "y": 390,
+   "rotation": 0,
+   "index": "a7g7j",
+   "parentId": "page:page",
+   "isLocked": false,
+   "opacity": 1,
+   "meta": {},
+   "props": {
+    "geo": "rectangle",
+    "dash": "draw",
+    "url": "",
+    "w": 570,
+    "h": 225,
+    "growY": 0,
+    "scale": 1,
+    "flipX": false,
+    "flipY": false,
+    "labelColor": "black",
+    "color": "green",
+    "fill": "semi",
+    "size": "s",
+    "font": "draw",
+    "align": "start",
+    "verticalAlign": "start",
+    "richText": {
+     "type": "doc",
+     "content": [
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "4. What information do they need?"
+        }
+       ]
+      },
+      {
+       "type": "paragraph"
+      },
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "Asset name & type, current odometer / engine hours, service schedules (task + interval by miles, hours or days), last service date & reading, next due point, status badge, parts cost, notes, open fault reports."
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "shape:geo_6",
+   "typeName": "shape",
+   "type": "geo",
+   "x": 40,
+   "y": 640,
+   "rotation": 0,
+   "index": "a8QZM",
+   "parentId": "page:page",
+   "isLocked": false,
+   "opacity": 1,
+   "meta": {},
+   "props": {
+    "geo": "rectangle",
+    "dash": "draw",
+    "url": "",
+    "w": 570,
+    "h": 225,
+    "growY": 0,
+    "scale": 1,
+    "flipX": false,
+    "flipY": false,
+    "labelColor": "black",
+    "color": "orange",
+    "fill": "semi",
+    "size": "s",
+    "font": "draw",
+    "align": "start",
+    "verticalAlign": "start",
+    "richText": {
+     "type": "doc",
+     "content": [
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "5. What actions can they perform?"
+        }
+       ]
+      },
+      {
+       "type": "paragraph"
+      },
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "Create / edit / delete assets, schedules, service logs and fault reports · update odometer / hours · filter alerts (window, asset, task) · sort by urgency · export CSV or printable PDF."
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "shape:geo_7",
+   "typeName": "shape",
+   "type": "geo",
+   "x": 640,
+   "y": 640,
+   "rotation": 0,
+   "index": "a9d3f",
+   "parentId": "page:page",
+   "isLocked": false,
+   "opacity": 1,
+   "meta": {},
+   "props": {
+    "geo": "rectangle",
+    "dash": "draw",
+    "url": "",
+    "w": 570,
+    "h": 225,
+    "growY": 0,
+    "scale": 1,
+    "flipX": false,
+    "flipY": false,
+    "labelColor": "black",
+    "color": "orange",
+    "fill": "semi",
+    "size": "s",
+    "font": "draw",
+    "align": "start",
+    "verticalAlign": "start",
+    "richText": {
+     "type": "doc",
+     "content": [
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "6. What pages are required?"
+        }
+       ]
+      },
+      {
+       "type": "paragraph"
+      },
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "Dashboard · Asset Detail · Log Service · Upcoming Alerts · Export"
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "shape:geo_8",
+   "typeName": "shape",
+   "type": "geo",
+   "x": 40,
+   "y": 890,
+   "rotation": 0,
+   "index": "aAh62",
+   "parentId": "page:page",
+   "isLocked": false,
+   "opacity": 1,
+   "meta": {},
+   "props": {
+    "geo": "rectangle",
+    "dash": "draw",
+    "url": "",
+    "w": 570,
+    "h": 225,
+    "growY": 0,
+    "scale": 1,
+    "flipX": false,
+    "flipY": false,
+    "labelColor": "black",
+    "color": "violet",
+    "fill": "semi",
+    "size": "s",
+    "font": "draw",
+    "align": "start",
+    "verticalAlign": "start",
+    "richText": {
+     "type": "doc",
+     "content": [
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "7. What data must be collected?"
+        }
+       ]
+      },
+      {
+       "type": "paragraph"
+      },
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "Asset (name, type, serial/VIN, meter unit, current reading) · Schedule (task type, interval value + unit) · Service log (date, odometer/hours, task type, parts cost, notes) · Fault report (date, severity, description, resolved?)."
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "shape:geo_9",
+   "typeName": "shape",
+   "type": "geo",
+   "x": 640,
+   "y": 890,
+   "rotation": 0,
+   "index": "aBodE",
+   "parentId": "page:page",
+   "isLocked": false,
+   "opacity": 1,
+   "meta": {},
+   "props": {
+    "geo": "rectangle",
+    "dash": "draw",
+    "url": "",
+    "w": 570,
+    "h": 225,
+    "growY": 0,
+    "scale": 1,
+    "flipX": false,
+    "flipY": false,
+    "labelColor": "black",
+    "color": "violet",
+    "fill": "semi",
+    "size": "s",
+    "font": "draw",
+    "align": "start",
+    "verticalAlign": "start",
+    "richText": {
+     "type": "doc",
+     "content": [
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "8. What permissions exist?"
+        }
+       ]
+      },
+      {
+       "type": "paragraph"
+      },
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "v1: one owner sees only THEIR fleet. Later (login): Admin edits schedules & deletes records; Technician can only add logs / fault reports; Viewer is read-only + export."
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "shape:geo_10",
+   "typeName": "shape",
+   "type": "geo",
+   "x": 40,
+   "y": 1150,
+   "rotation": 0,
+   "index": "aCirI",
+   "parentId": "page:page",
+   "isLocked": false,
+   "opacity": 1,
+   "meta": {},
+   "props": {
+    "geo": "rectangle",
+    "dash": "draw",
+    "url": "",
+    "w": 1170,
+    "h": 70,
+    "growY": 0,
+    "scale": 1,
+    "flipX": false,
+    "flipY": false,
+    "labelColor": "black",
+    "color": "black",
+    "fill": "none",
+    "size": "s",
+    "font": "draw",
+    "align": "middle",
+    "verticalAlign": "middle",
+    "richText": {
+     "type": "doc",
+     "content": [
+      {
+       "type": "paragraph",
+       "content": [
+        {
+         "type": "text",
+         "text": "Example answers above = FleetLog Mini. Status rule: Good → Due Soon (within 30 days or 500 mi / 25 hrs) → Overdue (past interval)."
+        }
+       ]
+      }
+     ]
+    }
+   }
+  }
+ ]
+}
